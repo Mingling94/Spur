@@ -1,16 +1,14 @@
-[![Circle CI](https://circleci.com/gh/irvinebroque/isomorphic-hot-loader.svg?style=svg)](https://circleci.com/gh/irvinebroque/isomorphic-hot-loader)
-[![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/irvinebroque/isomorphic-hot-loader)
-
-**Goal:** To provide a starter project for React.js projects with sane defaults and community-driven best practices.
+# Spur
+Find and share spontaneous moments
+AngelHack Boston 2015 Project
 
 - [Features](/FEATURES.md)
 
 ## Install
 
 1. Install [node.js](https://nodejs.org) (`brew install node`).
-2. Install [Flow](http://flowtype.org/docs/getting-started.html#_) (`brew install flow`) for inferred type checking in development with no extra work.
-3. Clone this repository
-4. `npm install`
+2. Clone this repository
+3. `npm install`
 
 ## Run it locally
 
@@ -37,8 +35,3 @@ Runs all [jest](https://facebook.github.io/jest/) unit tests within `__tests__` 
 `npm run lint`
 
 Runs [eslint](https://github.com/eslint/eslint). The eslint config is stored as `"eslintConfig"` within `package.json`, and is configured to work with both ES6 and JSX.
-
-
-### License
-
-[MIT](/LICENSE.md)
