@@ -1,6 +1,6 @@
 var Parse = require('parse').Parse;
 var Q = require('parse').Parse.Query;
-var Event = exports.Event = Parse.Object("SpurEvent");
+var Event = exports.Event = Parse.Object.extend("SpurEvent");
 
 /*
  * options = {
@@ -42,6 +42,7 @@ exports.findEventsForOwner = function(user) {
 };
 
 exports.findEventsWithinN = function(currentPosition, timestamp, miles) {
+  console.log("yay")
   var query = new Q(Event);
   return query.withinMiles('location', currentPosition, miles)
     .greaterThanOrEqualTo('timestamp', timestamp)

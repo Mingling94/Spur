@@ -46,7 +46,7 @@ server.use(function (req, res, next) {
   }
 
   // We customize the onAbort method in order to handle redirects
-  var router = Router.create({
+  /*var router = Router.create({
     routes: routes,
     location: req.path,
     onAbort: function defaultAbortHandler(abortReason, location) {
@@ -56,14 +56,14 @@ server.use(function (req, res, next) {
         res.redirect(404, "404");
       }
     }
-  });
+  });*/
 
-  var content = "";
+  /*var content = "";
 
   // Run the router, and render the result to string
   router.run(function (Handler, state) {
     content = React.renderToString(React.createElement(Handler, {routerState: state, deviceType: deviceType, environment: "server"}), null);
-  });
+  });*/
 
   // Resets the document title on each request
   // See https://github.com/gaearon/react-document-title#server-usage
@@ -76,7 +76,7 @@ server.use(function (req, res, next) {
   res.write('<html>');
   res.write(head);
   res.write('<body>');
-  res.write(content);
+  /*res.write(content);*/
   res.write('</body>');
 
   // In development, the compiled javascript is served by a WebpackDevServer, which lets us 'hot load' scripts in for live editing.

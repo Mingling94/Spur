@@ -6,6 +6,8 @@ var React = require('react')
   , Body = require('./../Body')
   , EventItem = require('./EventItem')
   , styles = {}
+  , EventModel = require('../../models/events')
+  , ParseReact = require('parse-react')
 
 styles.add = {
 	zIndex: 1,
@@ -25,21 +27,31 @@ styles.add = {
 	lineHeight: 0.9
 }
 
-var EventsList = React.createClass({
 
+						
+var EventsList = React.createClass({
+	mixins: [ParseReact.Mixin],
+	observe: function() {
+		var a = EventModel.findEventsWithinN([40.7127837, -74.00594130000002], 1433627757, 5)
+		console.log(a)
+		return {
+			events: a
+		}
+	},
 	render: function() {
 		return (
 			<Body>
 				<div>
 					<a style={styles.add} href="/event/add">+</a>
 					<div>Events List</div>
-
-					<EventItem />
+					{this.data.events.map(function(event) {
+						return <EventItem event={event} />
+					})}
 				</div>
 			</Body>
-		);
+		)
 	}
 
 });
 
-module.exports = EventsList;
+module.exports = EventsList

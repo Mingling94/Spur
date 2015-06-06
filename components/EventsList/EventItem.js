@@ -28,13 +28,14 @@ var Add = React.createClass({
     return (
       <a href="/event/view">
         <div style={styles.title}>
-          Event 1
+          {this.props.event.title}
         </div>
+        
         <div style={styles.time}>
-          2 mins from now
+          {this.props.event.timestamp}
         </div>
         <div style={styles.distance}>
-          3 miles away
+          {this.props.event.location}
         </div>
         <div style={styles.attendees}>
           4 attendees
