@@ -31,26 +31,24 @@ exports.addUserToEvent = function(currentEvent, user) {
   return currentEvent.save();
 };
 
-exports.findEventsForUser = function(user) {
+exports.removeUserFromEvent = function(currentEvent, user) {
+  currentEvent.remove('attendees', user);
+  return currentEvent.save();
+};
+
+exports.findEventsForOwner = function(user) {
   var query = new Q(Event);
-  return query.equalTo("owner_id", user.id).find();
+  return query.equalTo("owner_id", user.id);
 };
 
 exports.findEventsWithinN = function(currentPosition, timestamp, miles) {
-  if (miles === undefined) {
-    miles = 5;
-  }
-
   var query = new Q(Event);
-  
   return query.withinMiles('location', currentPosition, miles)
     .greaterThanOrEqualTo('timestamp', timestamp)
-    .ascending('timestamp')
-    .find();
+    .ascending('timestamp');
 };
 
 exports.searchEventsByString = function(needle) {
   var query = new Q(Event);
-
-  returnquery.contains('title', needle.toLowerCase()).find();
+  return query.contains('title', needle.toLowerCase());
 };
