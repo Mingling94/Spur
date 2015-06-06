@@ -4,16 +4,16 @@
 
 var React = require('react')
 
-var Add = React.createClass({
+var Event = React.createClass({
 
   render: function() {
     return (
       <div>
-        Event 1
+        Event View
       </div>
     );
   }
 
 });
 
-module.exports = Add;
+module.exports = Event;

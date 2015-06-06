@@ -4,7 +4,7 @@
 
 var React = require('react')
   , Body = require('./../Body')
-  , Event = require('./Event')
+  , EventItem = require('./EventItem')
 
 var EventsList = React.createClass({
 
@@ -12,11 +12,10 @@ var EventsList = React.createClass({
 		return (
 			<Body>
 				<div>
-					<a href="/add">+</a>
+					<a href="/addEvent">+</a>
 					<div>Events List</div>
 
-					// Loop Over Events
-					<Event />
+					<EventItem />
 				</div>
 			</Body>
 		);

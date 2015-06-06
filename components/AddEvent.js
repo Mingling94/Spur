@@ -10,10 +10,10 @@ var Add = React.createClass({
   render: function() {
     return (
       <div>
-      <Body>
-        <a href="/">Events List</a>
-        Add
-      </Body>
+        <Body>
+          <a href="/">Events List</a>
+          Add
+        </Body>
       </div>
     );
   }
