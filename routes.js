@@ -10,7 +10,9 @@ var Redirect = require('react-router').Redirect;
 
 var Routes = (
   <Route handler={require('./components/App')}>
-    <DefaultRoute name="Home" handler={require('./components/Home')}/>
+    <DefaultRoute name="Home" handler={require('./components/EventsList')}/>
+    <Route name="Add" path="/add" handler={require('./components/Add')}/>
+
     <Route name="About Me" path="/about" handler={require('./components/About')}/>
     <Redirect from="foo" to="About Me"/>
     <NotFoundRoute handler={require('./components/NotFound')}/>
