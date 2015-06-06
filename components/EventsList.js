@@ -2,16 +2,19 @@
 
 "use strict";
 
-var React = require('react');
+var React = require('react')
+  , Body = require('./Body')
 
 var EventsList = React.createClass({
 
 	render: function() {
 		return (
-			<div>
-				<a href="/add">+</a>
-				<div>Events List</div>
-			</div>
+			<Body>
+				<div>
+					<a href="/add">+</a>
+					<div>Events List</div>
+				</div>
+			</Body>
 		);
 	}
 
