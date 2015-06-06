@@ -1,6 +1,6 @@
 var Parse = require('parse').Parse;
 var Q = require('parse').Parse.Query;
-var Event = exports.Event = Parse.Object("SpurEvent");
+var Event = exports.Event = Parse.Object.extend("SpurEvent");
 
 /*
  * options = {
