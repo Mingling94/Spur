@@ -3,7 +3,8 @@
 "use strict";
 
 var React = require('react')
-  , Body = require('./Body')
+  , Body = require('./../Body')
+  , Event = require('./Event')
 
 var EventsList = React.createClass({
 
@@ -13,6 +14,9 @@ var EventsList = React.createClass({
 				<div>
 					<a href="/add">+</a>
 					<div>Events List</div>
+
+					// Loop Over Events
+					<Event />
 				</div>
 			</Body>
 		);
