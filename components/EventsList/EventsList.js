@@ -12,7 +12,7 @@ var EventsList = React.createClass({
 		return (
 			<Body>
 				<div>
-					<a href="/addEvent">+</a>
+					<a href="/event/add">+</a>
 					<div>Events List</div>
 
 					<EventItem />

@@ -25,7 +25,7 @@ var Add = React.createClass({
 
   render: function() {
     return (
-      <div>
+      <a href="/event/view">
         <div style={title}>
           Event 1
         </div>
@@ -38,7 +38,7 @@ var Add = React.createClass({
         <div style={attendees}>
           4 attendees
         </div>
-      </div>
+      </a>
     );
   }
 
