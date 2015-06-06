@@ -16,7 +16,7 @@ Parse.initialize("lcOvAIMCzFeJKPCOIF4L6IBPQmthkJwShAemMUQ8", "ANHhHgubc9myfbRngB
 var Routes = (
   <Route handler={require('./components/App')}>
     <DefaultRoute name="Home" handler={require('./components/EventsList/EventsList')}/>
-    <Route name="Add" path="/event/add" handler={require('./components/AddEvent')}/>
+    <Route name="Create" path="/event/create" handler={require('./components/CreateEvent/CreateEvent')}/>
     <Route name="View" path="/event/view" handler={require('./components/EventPage/Event')}/>
 
     <Route name="About Me" path="/about" handler={require('./components/About')}/>

@@ -9,7 +9,7 @@ var React = require('react')
   , EventModel = require('../../models/events')
   , ParseReact = require('parse-react')
 
-styles.add = {
+styles.create = {
 	zIndex: 1,
 	position: 'absolute',
 	right: '1em',
@@ -42,7 +42,7 @@ var EventsList = React.createClass({
 		return (
 			<Body>
 				<div>
-					<a style={styles.add} href="/event/add">+</a>
+					<a style={styles.create} href="/event/create">+</a>
 					<div>Events List</div>
 					{this.data.events.map(function(event) {
 						return <EventItem event={event} />
@@ -52,6 +52,6 @@ var EventsList = React.createClass({
 		)
 	}
 
-});
+})
 
 module.exports = EventsList

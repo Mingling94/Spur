@@ -3,16 +3,15 @@
 "use strict";
 
 var React = require('react')
-  , Body = require('./Body')
+  , Body = require('./../Body')
 
-var Add = React.createClass({
-
+var Create = React.createClass({
   render: function() {
     return (
       <div>
         <Body>
           <a href="/">Events List</a>
-          Add
+          Create
         </Body>
       </div>
     );
@@ -20,4 +19,4 @@ var Add = React.createClass({
 
 });
 
-module.exports = Add;
+module.exports = Create;
