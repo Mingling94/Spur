@@ -3,8 +3,9 @@
 "use strict";
 
 var React = require('react')
+  , styles = {}
 
-var body = {
+styles.body = {
 	maxWidth: '40em',
 	width: '100%',
 	margin: 'auto',
@@ -16,7 +17,7 @@ var Body = React.createClass({
 
 	render: function() {
 		return (
-			<div style={body}>
+			<div style={styles.body}>
 				{this.props.children}
 			</div>
 		);

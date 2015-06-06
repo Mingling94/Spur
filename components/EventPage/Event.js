@@ -4,24 +4,25 @@
 
 var React = require('react')
   , Body = require('./../Body')
+  , styles = {}
 
-var title = {
-
-}
-
-var description = {
+styles.title = {
 
 }
 
-var time = {
+styles.description = {
 
 }
 
-var location = {
+styles.time = {
 
 }
 
-var attendees = {
+styles.location = {
+
+}
+
+styles.attendees = {
 
 }
 
@@ -32,23 +33,23 @@ var Event = React.createClass({
       <Body>
       	<a href="/">Events List</a>
 
-        <div style={title}>
+        <div style={styles.title}>
           Event Title
         </div>
 
-        <div style={description}>
+        <div style={styles.description}>
           This is longer text for the Event Description
         </div>
 
-        <div style={time}>
+        <div style={styles.time}>
           7:48pm
         </div>
 
-        <div style={location}>
+        <div style={styles.location}>
           342 Tree Way, Atlanta GA
         </div>
 
-        <div style={attendees}>
+        <div style={styles.attendees}>
           List of Attendees: Ryan Britton, Sean Reid...
         </div>
 

@@ -5,6 +5,18 @@
 var React = require('react')
   , Body = require('./../Body')
   , EventItem = require('./EventItem')
+  , styles = {}
+
+styles.add = {
+	zIndex: 1,
+	position: 'absolute',
+	right: '1em',
+	bottom: '1em',
+	backgroundColor: 'green',
+	width: '3em',
+	height: '3em',
+	fontSize: '2em'
+}
 
 var EventsList = React.createClass({
 
@@ -12,7 +24,7 @@ var EventsList = React.createClass({
 		return (
 			<Body>
 				<div>
-					<a href="/event/add">+</a>
+					<a style={styles.add} href="/event/add">+</a>
 					<div>Events List</div>
 
 					<EventItem />
