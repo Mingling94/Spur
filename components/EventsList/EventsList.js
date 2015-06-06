@@ -13,9 +13,16 @@ styles.add = {
 	right: '1em',
 	bottom: '1em',
 	backgroundColor: 'green',
-	width: '3em',
-	height: '3em',
-	fontSize: '2em'
+	width: '2em',
+	height: '2em',
+	borderRadius: '2em',
+	fontSize: '2em',
+	textAlign: 'center',
+	verticalAlign: 'middle',
+	textDecoration: 'none',
+	color: 'white',
+	padding: '0.5em',
+	lineHeight: 0.9
 }
 
 var EventsList = React.createClass({

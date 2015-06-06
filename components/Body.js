@@ -10,7 +10,8 @@ styles.body = {
 	width: '100%',
 	margin: 'auto',
 	height: '100%',
-	backgroundColor: '#eee'
+	backgroundColor: '#eee',
+	position: 'relative'
 }
 
 var Body = React.createClass({
