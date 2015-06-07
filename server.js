@@ -7,7 +7,7 @@ var express = require('express');
 var compression = require('compression');
 var cors = require('cors');
 var React = require('react');
-var routes = require('./routes');
+//var routes = require('./routes');
 var Head = React.createFactory(require('./components/Head'));
 var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
@@ -90,6 +90,7 @@ server.use(function (req, res, next) {
     res.write('<script src="/build/client.js" defer></script>');
   }
 
+  res.write('<script src="//connect.facebook.net/en_US/sdk.js"></script>');
   res.write('</html>');
   res.end();
 
