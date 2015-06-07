@@ -28,7 +28,7 @@ var EventsList = React.createClass({
 	mixins: [ParseReact.Mixin, Router.Navigation],
 	observe: function() {
 		return {
-			events: EventModel.findEventsWithinN([40.7127837, -74.00594130000002], 1433627757, 500)
+			events: EventModel.findEventsWithinN([42.3600825, -71.05888010000001], 1433627757, )
 		}
 	},
 	getInitialState: function() {
