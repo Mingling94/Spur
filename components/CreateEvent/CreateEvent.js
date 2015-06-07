@@ -3,12 +3,15 @@
 "use strict";
 
 var React = require('react')
+  , Router = require('react-router')
   , Body = require('./../Body')
   , EventAPI = require('./../../models/events')
   , Moment = require('moment')
+  , UI = require('material-ui')
   // , GMaps = require('react-gmaps') GEO
 
 var Create = React.createClass({
+	mixins: [Router.Navigation],
   render: function() {
     return (
       <Body>
@@ -83,8 +86,12 @@ var Create = React.createClass({
     }
     console.log(options)
     EventAPI.createEvent({id: {objectId: 0}}, options)
-
+    //this.transitionTo('/')
+    this.goHome()
   },
+	goHome: function() {
+		this.transitionTo('/')
+	},
   getInitialState: function() {
     return {}
   }
