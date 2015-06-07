@@ -7,26 +7,36 @@ var React = require('react')
   , Router = require('react-router')
   , EventModel = require('../../models/events')
   , UI = require('material-ui')
-  , styles = {}
+  , moment = require('moment')
 
-styles.title = {
 
-}
-
-styles.description = {
-
-}
-
-styles.time = {
-
-}
-
-styles.location = {
-
-}
-
-styles.attendees = {
-
+var styles = {
+  infoBar: {
+    padding: 24,
+    backgroundColor:'#f4f4f4',
+    borderBottom:'1px solid #ddd'
+  },
+  info: {
+    display:'inline-block',
+    marginRight: 24
+  },
+  icon: {
+    marginRight: 3,
+    position:'relative',
+    top:6
+  },
+  action: {
+    margin:24,
+    marginTop:0,
+    float:'right',
+    color:'#fff'
+  },
+  address: {
+    marginTop:12
+  },
+  description: {
+    padding:24
+  }
 }
 
 var Event = React.createClass({
@@ -64,31 +74,30 @@ var Event = React.createClass({
     event.save()
   },
   render: function() {
+    var event = this.state.event.attributes
+
     return (
-      <Body title={this.state.event.title}>
-      	<div style={styles.title}>
-          {this.state.event.attributes.title}
+      <Body title={event.title}>
+        <div style={styles.infoBar}>
+          <div style={styles.info}>
+            <UI.FontIcon className="material-icons" style={styles.icon}>face</UI.FontIcon>
+            <span>{event.attendees} going</span>
+          </div>
+          <div style={styles.info}>
+            <UI.FontIcon className="material-icons" style={styles.icon}>access_time</UI.FontIcon>
+            {moment.unix(event.timestamp).calendar()}
+          </div>
+          <div style={{ ...styles.info, ...styles.address }}>
+            <UI.FontIcon className="material-icons" style={styles.icon}>location_on</UI.FontIcon>
+            {event.address}
+          </div>
         </div>
-
         <div style={styles.description}>
-          {this.state.event.attributes.description}
+          {event.description}
         </div>
-
-        <div style={styles.time}>
-          {this.state.event.attributes.timestamp}
-        </div>
-
-        <div style={styles.location}>
-          {this.state.event.attributes.address}
-        </div>
-
-        <div style={styles.attendees}>
-          {this.state.event.attributes.attendees}
-        </div>
-
-        <button className={this.state.join.className} onClick={this.toggleJoin}>
+        <UI.RaisedButton style={styles.action} className={this.state.join.className} primary={true} onClick={this.toggleJoin}>
           {this.state.join.text}
-        </button>
+        </UI.RaisedButton>
       </Body>
     );
   }
