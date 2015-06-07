@@ -47,7 +47,7 @@ var Add = React.createClass({
         </div>
         <div style={styles.info}>
           <UI.FontIcon className="material-icons" style={styles.icon}>location_on</UI.FontIcon>
-          3.1 miles
+          {this.props.distances[this.props.event.id]} mi
         </div>
         <div style={styles.info}>
           <UI.FontIcon className="material-icons" style={styles.icon}>face</UI.FontIcon>
