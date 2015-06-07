@@ -23,10 +23,10 @@ styles.attendees = {
 }
 
 var Add = React.createClass({
-
   render: function() {
-    console.log(this.props.event.id)
-    var url = '/event/view/'+this.props.event.id
+    console.log('test', this.props.event.id.objectId)
+    var url = '/event/view/'+this.props.event.id.objectId
+    console.log(url)
     return (
       <a href={url}>
         <div style={styles.title}>

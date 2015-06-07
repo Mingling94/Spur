@@ -4,6 +4,8 @@
 
 var React = require('react')
   , Body = require('./../Body')
+  , Router = require('react-router')
+  , EventModel = require('../../models/events')
   , styles = {}
 
 styles.title = {
@@ -27,32 +29,42 @@ styles.attendees = {
 }
 
 var Event = React.createClass({
+  mixins: [Router.State],
+  getInitialState: function() {
+  	return {
+  		event:{}
+  	}
+  },
+  componentDidMount: function() {
+  	var self = this
+  	EventModel.findEventById(this.getParams().id).then(function(event) {
+  		self.setState({ event: event.attributes })
+  	})
+  },
   render: function() {
-
-	console.log(this)
 
     return (
       <Body>
       	<a href="/">Events List</a>
 
         <div style={styles.title}>
-          Event Title
+          {this.state.event.title}
         </div>
 
         <div style={styles.description}>
-          This is longer text for the Event Description
+          {this.state.event.description}
         </div>
 
         <div style={styles.time}>
-          7:48pm
+          {this.state.event.timestamp}
         </div>
 
         <div style={styles.location}>
-          342 Tree Way, Atlanta GA
+          {this.state.event.address}
         </div>
 
         <div style={styles.attendees}>
-          List of Attendees: Ryan Britton, Sean Reid...
+          {this.state.event.attendees}
         </div>
 
         
