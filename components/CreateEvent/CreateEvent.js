@@ -5,6 +5,7 @@
 var React = require('react')
   , Body = require('./../Body')
   , EventAPI = require('./../../models/events')
+  , Moment = require('moment')
   // , GMaps = require('react-gmaps') GEO
 
 var Create = React.createClass({
@@ -71,16 +72,18 @@ var Create = React.createClass({
     this.setState({time: e.target.value});
   },
   updateDescriptionField: function(e) {
-    this.setState({time: e.target.description});
+    this.setState({description: e.target.description});
   },
   handleSubmit: function(e) {
-    var options = {
-      name: this.state.name,
-      location: this.state.location,
-      time: this.state.time
-    }
-    EventAPI.createEvent("UserDefault", options)
     e.preventDefault();
+    var options = {
+      title: this.state.name,
+      address: this.state.location,
+      timestamp: Moment().add(1, 'day').unix()
+    }
+    console.log(options)
+    EventAPI.createEvent({id: {objectId: 0}}, options)
+
   },
   getInitialState: function() {
     return {}

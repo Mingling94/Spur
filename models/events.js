@@ -22,12 +22,13 @@ exports.createEvent = function(user, data, options) {
     [42.37186154, 71.11673355],
     [42.3421784, 71.16239548]
   ];
-  var event
   var loc = locations[Math.floor(Math.random()*locations.length)];
-  data.owner_id = Parse.User.current();
+  data.owner_id = user.id.objectId;
   data.location = new Parse.GeoPoint({latitude: loc[0], longitude: loc[1]});
-
-  return Mutation.Create(EVENT_CLASS_NAME, data).dispatch(options);
+  console.log(data);
+  var e = new Event();
+  e.save(data);
+  return e.save();
 };
 
 exports.findEventById = function(event_id, options) {
