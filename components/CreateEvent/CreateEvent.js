@@ -99,13 +99,15 @@ var Create = React.createClass({
     e.preventDefault();
     var clock = this.state.time.split(":")
     var now = new Date()
-    var date = new Date(now.getFullYear(), now.getMonth(), now.getDate(), clock[0], clock[1])
-    var unixTime = Moment(date).unix()
+    var date = new Date(now.getFullYear(), now.getMonth(), now.getDate(), parseInt(clock[0]), parseInt(clock[1]))
+    var mTime = Moment(date)
+    if (mTime <= Moment())
+      mTime = mTime.add(1, 'day')
 
     var data = {
       title: this.state.name,
       address: this.state.location,
-      timestamp: unixTime
+      timestamp: mTime.unix()
     }
     console.log(data)
     EventAPI.createEvent({id: {objectId: 0}}, data)
