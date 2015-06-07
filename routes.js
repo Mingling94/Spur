@@ -21,7 +21,7 @@ Parse.FacebookUtils.init({
 
 var Routes = (
   <Route handler={require('./components/App')}>
-    <DefaultRoute name="Home" handler={require('./components/EventsList/EventsList')}/>
+    <DefaultRoute name="Home" path="/" handler={require('./components/EventsList/EventsList')}/>
     <Route name="Create" path="/event/create" handler={require('./components/CreateEvent/CreateEvent')}/>
     <Route name="View" path="/event/view/:id" handler={require('./components/EventPage/EventPage')}/>
 
