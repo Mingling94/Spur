@@ -23,6 +23,7 @@ var Head = React.createClass({
         <meta name="mobile-web-app-capable" content="yes"/>
         <link href='/static/normalize.css' rel='stylesheet' />
         <link href='/static/animation.css' rel='stylesheet' />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css' />
       </head>
     );

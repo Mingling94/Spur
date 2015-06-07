@@ -4,6 +4,8 @@
 
 var React = require('react')
   , Link = require('react-router').Link
+  , UI = require('material-ui')
+  , moment = require('moment')
 
 var styles = {
   event: {
@@ -17,14 +19,14 @@ var styles = {
   title: {
     fontSize: '1.4em'
   },
-  time: {
-
+  info: {
+    display:'inline-block',
+    marginRight: 24
   },
-  distance: {
-
-  },
-  attendees: {
-
+  icon: {
+    marginRight: 3,
+    position:'relative',
+    top:6
   }
 }
 
@@ -37,14 +39,17 @@ var Add = React.createClass({
           {this.props.event.title}
         </div>
 
-        <div style={styles.time}>
-          {this.props.event.timestamp}
+        <div style={styles.info}>
+          <UI.FontIcon className="material-icons" style={styles.icon}>access_time</UI.FontIcon>
+          {moment.unix(this.props.event.timestamp).fromNow()}
         </div>
-        <div style={styles.distance}>
-          {this.props.event.location}
+        <div style={styles.info}>
+          <UI.FontIcon className="material-icons" style={styles.icon}>location_on</UI.FontIcon>
+          3.1 miles
         </div>
-        <div style={styles.attendees}>
-          4 attendees
+        <div style={styles.info}>
+          <UI.FontIcon className="material-icons" style={styles.icon}>face</UI.FontIcon>
+          <span>{this.props.event.attendees.length} going</span>
         </div>
       </Link>
     );
