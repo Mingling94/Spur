@@ -10,11 +10,12 @@ var React = require('react')
   , UserModel = require('../../models/user')
   , ParseReact = require('parse-react')
   , UI = require('material-ui')
+  , Moment = require('moment')
 
 var styles = {
 	create: {
 		zIndex: 1,
-		position: 'absolute',
+		position: 'fixed',
 		right: '1em',
 		bottom: '1em'
 	},
@@ -28,7 +29,7 @@ var EventsList = React.createClass({
 	mixins: [ParseReact.Mixin, Router.Navigation],
 	observe: function() {
 		return {
-			events: EventModel.findEventsWithinN([42.3600825, -71.0588801], 1433627757, 5)
+			events: EventModel.findEventsWithinN([42.3600825, -71.0588801], Moment().unix(), 10)
 		}
 	},
 	getInitialState: function() {
@@ -39,8 +40,7 @@ var EventsList = React.createClass({
 	},
 	render: function() {
 		return (
-			<Body>
-				<UI.AppBar title="Moments" showMenuIconButton={false} />
+			<Body title="Moments">
 				{this.data.events.map(function(event) {
 					return <EventItem event={event} />
 				})}
