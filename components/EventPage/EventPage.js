@@ -35,24 +35,34 @@ var Event = React.createClass({
   	return {
   		event:{
         attributes: {}
+      },
+      join: {
+        text:'Join',
+        className:'join'
       }
   	}
   },
   componentDidMount: function() {
   	var self = this
   	EventModel.findEventById(this.getParams().id).then(function(event) {
-  		self.setState({ event: event })
+      self.setState({ event: event })
   	})
   },
-  joinEvent: function(e) {
-    console.log(this.state.event)
-    EventModel.addUserToEvent(this.state.event).then(function(result, e) {
-      if (e) {
-        console.log("ERROR " + e)
-      } else {
-        console.log("ASFDJHASDFJHADSKJ")
-      }
-    })
+  toggleJoin: function(e) {
+    var event = this.state.event
+
+    if(this.state.join.className == 'bail') {
+      if(!event.attributes.attendees) event.attributes.attendees = 1
+      event.attributes.attendees = this.state.event.attributes.attendees-1
+      console.log(event.attributes.attendees)
+      this.setState({ join: { text:'Join', className:'join' }, event:event })
+    } else {
+      console.log(event.attributes.attendees)
+      if(!event.attributes.attendees) event.attributes.attendees = 0
+      event.attributes.attendees = this.state.event.attributes.attendees+1
+      console.log(event.attributes.attendees)
+      this.setState({ join: { text:'Bail', className:'bail' }, event:event })
+    }
   },
   render: function() {
     return (
@@ -79,8 +89,8 @@ var Event = React.createClass({
           {this.state.event.attributes.attendees}
         </div>
 
-        <button className="join" onClick={this.joinEvent}>
-          Join
+        <button className={this.state.join.className} onClick={this.toggleJoin}>
+          {this.state.join.text}
         </button>
       </Body>
     );
