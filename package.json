@@ -10,6 +10,7 @@
   "author": "Brendan Irvine-Broque <brendanib@gmail.com>",
   "scripts": {
     "dev": "NODE_ENV=development supervisor --harmony --ignore build/ -e js server & NODE_ENV=development node hotLoadServer.js",
+    "dev-windows": "SET NODE_ENV=development && supervisor --harmony --ignore build/ -e js server & node hotLoadServer.js",
     "start": "NODE_ENV=production node --harmony server",
     "lint": "eslint ./",
     "typecheck": "flow",
@@ -59,6 +60,7 @@
     "node-jsx": "^0.12.4",
     "object-assign": "^2.0.0",
     "parse": "^1.4.2",
+    "parse-react": "^0.3.1",
     "react": "^0.12.2",
     "react-a11y": "0.0.5",
     "react-document-title": "^0.1.3",
