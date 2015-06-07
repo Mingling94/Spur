@@ -66,10 +66,8 @@ var Event = React.createClass({
   },
   render: function() {
     return (
-      <Body>
-      	<UI.AppBar title={this.state.event.title} />
-
-        <div style={styles.title}>
+      <Body title={this.state.event.title}>
+      	<div style={styles.title}>
           {this.state.event.attributes.title}
         </div>
 

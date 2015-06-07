@@ -3,13 +3,25 @@
 "use strict";
 
 var React = require('react')
-  , styles = {}
+  , UI = require('material-ui')
+
+var styles = {
+	header: {
+		position:'fixed'
+	},
+	page: {
+		marginTop:64
+	}
+}
 
 var Body = React.createClass({
 	render: function() {
 		return (
 			<div className="page">
-				{this.props.children}
+				<UI.AppBar title={this.props.title} showMenuIconButton={false} style={styles.header} />
+				<div style={styles.page}>
+					{this.props.children}
+				</div>
 			</div>
 		);
 	}

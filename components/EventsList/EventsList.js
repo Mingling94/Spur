@@ -14,7 +14,7 @@ var React = require('react')
 var styles = {
 	create: {
 		zIndex: 1,
-		position: 'absolute',
+		position: 'fixed',
 		right: '1em',
 		bottom: '1em'
 	},
@@ -39,8 +39,7 @@ var EventsList = React.createClass({
 	},
 	render: function() {
 		return (
-			<Body>
-				<UI.AppBar title="Moments" showMenuIconButton={false} />
+			<Body title="Moments">
 				{this.data.events.map(function(event) {
 					return <EventItem event={event} />
 				})}

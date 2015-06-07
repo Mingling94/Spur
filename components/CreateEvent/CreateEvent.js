@@ -33,8 +33,7 @@ var styles = {
 var Create = React.createClass({
   render: function() {
     return (
-      <Body>
-        <UI.AppBar title="Create a Moment" />
+      <Body title="Create a Moment">
         <form className="createEvent" onSubmit={this.handleSubmit} style={styles.form}>
           <div>
             <label style={styles.label}>
