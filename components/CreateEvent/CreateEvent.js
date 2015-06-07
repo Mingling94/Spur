@@ -97,13 +97,18 @@ var Create = React.createClass({
   },
   handleSubmit: function(e) {
     e.preventDefault();
-    var options = {
+    var clock = this.state.time.split(":")
+    var now = new Date()
+    var date = new Date(now.getFullYear(), now.getMonth(), now.getDate(), clock[0], clock[1])
+    var unixTime = Moment(date).unix()
+
+    var data = {
       title: this.state.name,
       address: this.state.location,
-      timestamp: Moment().add(1, 'day').unix()
+      timestamp: unixTime
     }
-    console.log(options)
-    EventAPI.createEvent({id: {objectId: 0}}, options)
+    console.log(data)
+    EventAPI.createEvent({id: {objectId: 0}}, data)
     //this.transitionTo('/')
     this.goHome()
   },

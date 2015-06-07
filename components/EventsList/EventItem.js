@@ -43,7 +43,7 @@ var Add = React.createClass({
 
         <div style={styles.info}>
           <UI.FontIcon className="material-icons" style={styles.icon}>access_time</UI.FontIcon>
-          {moment.unix(this.props.event.timestamp).fromNow()}
+          {moment.unix(this.props.event.timestamp).calendar()}
         </div>
         <div style={styles.info}>
           <UI.FontIcon className="material-icons" style={styles.icon}>location_on</UI.FontIcon>
