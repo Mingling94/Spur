@@ -22,19 +22,17 @@ exports.createEvent = function(user, data, options) {
   return Mutation.Create(EVENT_CLASS_NAME, data).dispatch(options);
 };
 
-exports.findEventById = function(event_id) {
+exports.findEventById = function(event_id, options) {
   var query = new Q(Event);
-  return query.get(event_id);
+  return query.get(event_id, options);
 };
 
 exports.addUserToEvent = function(currentEvent, user) {
-  currentPosition.addUnique("attendees", user);
-  return currentEvent.save();
+  return Mutation.AddUnique(currentEvent, "attendees", user).dispatch();
 };
 
 exports.removeUserFromEvent = function(currentEvent, user) {
-  currentEvent.remove('attendees', user);
-  return currentEvent.save();
+  return Mutation.Remove(currentEvent, "attendees", user).dispatch();
 };
 
 exports.findEventsForOwner = function(user) {
