@@ -66,16 +66,13 @@ var Create = React.createClass({
             <textarea onChange={this.updateDescriptionField} style={styles.input}>{this.state.description}</textarea>
           </div>
           <UI.RaisedButton label="Create" primary={true} style={styles.action} />
-          <UI.RaisedButton label="Cancel" style={styles.action} onClick={this.goBack} />
+          <UI.RaisedButton label="Cancel" style={styles.action} onClick={this.goHome} />
         </form>
       </Body>
     );
   },
   updateNameField: function(e) {
     this.setState({name: e.target.value});
-  },
-  goBack: function(e) {
-    return false;
   },
   updateLocationField: function(e) {
     var self = this
