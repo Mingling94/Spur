@@ -37,11 +37,11 @@ exports.findEventById = function(event_id, options) {
 };
 
 exports.addUserToEvent = function(currentEvent) {
-  return currentEvent.addUnique("attendees", Parse.User.current());
+  return currentEvent.save();
 };
 
 exports.removeUserFromEvent = function(currentEvent) {
-  return currentEvent.remove(Parse.User.current());
+  return currentEvent.save();
 };
 
 exports.findEventsForOwner = function(user) {

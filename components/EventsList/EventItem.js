@@ -49,7 +49,7 @@ var Add = React.createClass({
         </div>
         <div style={styles.info}>
           <UI.FontIcon className="material-icons" style={styles.icon}>face</UI.FontIcon>
-          <span>{this.props.event.attendees.length} going</span>
+          <span>{this.props.event.attendees} going</span>
         </div>
       </Link>
     );
