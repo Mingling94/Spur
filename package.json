@@ -10,6 +10,7 @@
   "author": "Brendan Irvine-Broque <brendanib@gmail.com>",
   "scripts": {
     "dev": "NODE_ENV=development supervisor --harmony --ignore build/ -e js server & NODE_ENV=development node hotLoadServer.js",
+    "dev-windows": "SET NODE_ENV=development && supervisor --harmony --ignore build/ -e js server & node hotLoadServer.js",
     "start": "NODE_ENV=production node --harmony server",
     "lint": "eslint ./",
     "typecheck": "flow",

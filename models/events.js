@@ -1,39 +1,39 @@
+const EVENT_CLASS_NAME = 'SpurEvent';
+
 var Parse = require('parse').Parse;
-var Q = require('parse').Parse.Query;
-var Event = exports.Event = Parse.Object.extend("SpurEvent");
+var Mutation = require('parse-react').Mutation;
+var Q = Parse.Query;
+var Event = exports.Event = Parse.Object.extend(EVENT_CLASS_NAME);
 
 /*
- * options = {
+ * data = {
  *   'title': 'some thing',
  *   'description': 'some description',
  *   'timestamp': long,
  *   'localtion': array of two floats
  * }
  */
-exports.createEvent = function(user, options) {
-  var e = new Event();
+exports.createEvent = function(user, data, options) {
+  var event
+  var loc = data.location;
+  data.owner_id = user.id;
+  data.location = new Parse.GeoPoint({latitude: loc[0], longitude: loc[1]
+});
 
-  // var loc = options.location;
-  options.owner_id = user.id;
-  // options.location = new Parse.GeoPoint({latitude: loc[0], longitude: loc[1]}); GEO
-  e.save(options);
-
-  return e.save();
+  return Mutation.Create(EVENT_CLASS_NAME, data).dispatch(options);
 };
 
-exports.findEventById = function(event_id) {
+exports.findEventById = function(event_id, options) {
   var query = new Q(Event);
-  return query.get(event_id);
+  return query.get(event_id, options);
 };
 
 exports.addUserToEvent = function(currentEvent, user) {
-  currentPosition.addUnique("attendees", user);
-  return currentEvent.save();
+  return Mutation.AddUnique(currentEvent, "attendees", user).dispatch();
 };
 
 exports.removeUserFromEvent = function(currentEvent, user) {
-  currentEvent.remove('attendees', user);
-  return currentEvent.save();
+  return Mutation.Remove(currentEvent, "attendees", user).dispatch();
 };
 
 exports.findEventsForOwner = function(user) {
