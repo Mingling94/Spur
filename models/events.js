@@ -21,13 +21,13 @@ exports.createEvent = function(user, options) {
   return e.save();
 };
 
-exports.findEventById = function(event_id) {
+exports.findEventById = function(event_id, options) {
   var query = new Q(Event);
-  return query.get(event_id);
+  return query.get(event_id, options);
 };
 
 exports.addUserToEvent = function(currentEvent, user) {
-  currentPosition.addUnique("attendees", user);
+  currentEvent.addUnique("attendees", user);
   return currentEvent.save();
 };
 
