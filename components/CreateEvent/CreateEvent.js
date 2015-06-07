@@ -4,6 +4,8 @@
 
 var React = require('react')
   , Body = require('./../Body')
+  , EventAPI = require('./../../models/events')
+  , GMaps = require('react-gmaps')
 
 var Create = React.createClass({
   render: function() {
@@ -18,7 +20,7 @@ var Create = React.createClass({
                 Event Name
               </label>
               <input type="text" name="name" value={this.state.name}
-              onChange={this.updateNameField}/>
+                onChange={this.updateNameField}/>
             </div>
             <div>
               <label>
@@ -46,13 +48,31 @@ var Create = React.createClass({
     this.setState({name: e.target.value});
   },
   updateLocationField: function(e) {
+    var self = this
+    // keep track of this, because it changes
+    // GMaps.geocode({
+    //   address: e.target.value,
+    //   callback: function(results, status) {
+    //     if (status != 'OK') return
+    //     var geo = results[0].geometry.location
+    //     self.setState({
+    //       coordinates: [geo.lat(), geo.lng()]
+    //     })
+    //     console.log(self.coordinates)
+    //   }
+    // }) GEO
     this.setState({location: e.target.value});
   },
   updateTimeField: function(e) {
     this.setState({time: e.target.value});
   },
   handleSubmit: function(e) {
-    console.log(e.target)
+    var options = {
+      name: this.state.name,
+      location: this.state.coordinates,
+      time: this.state.time
+    }
+    EventAPI.createEvent("UserDefault", options)
     e.preventDefault();
   },
   getInitialState: function() {

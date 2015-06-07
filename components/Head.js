@@ -22,6 +22,9 @@ var Head = React.createClass({
         <meta name="apple-mobile-web-app-capable" content="yes"/>
         <meta name="mobile-web-app-capable" content="yes"/>
         <link href='/static/normalize.css' rel='stylesheet' />
+        // Including the Google Maps API and the GMaps library
+        // <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+        // <script src="http://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.12/gmaps.min.js"></script> GEO
       </head>
     );
   }
