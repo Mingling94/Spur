@@ -17,7 +17,8 @@ exports.createEvent = function(user, data, options) {
   var event
   var loc = data.location;
   data.owner_id = user.id;
-  data.location = new Parse.GeoPoint({latitude: loc[0], longitude: loc[1]});
+  data.location = new Parse.GeoPoint({latitude: loc[0], longitude: loc[1]
+});
 
   return Mutation.Create(EVENT_CLASS_NAME, data).dispatch(options);
 };
