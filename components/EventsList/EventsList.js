@@ -11,6 +11,7 @@ var React = require('react')
   , ParseReact = require('parse-react')
   , UI = require('material-ui')
   , Moment = require('moment')
+  , Geolib = require('geolib')
 
 var styles = {
 	create: {
@@ -39,10 +40,21 @@ var EventsList = React.createClass({
 		this.transitionTo('/event/create')
 	},
 	render: function() {
+		var distances = {}
+		for(var i=0; i<this.data.events.length; i++) {
+			var event = this.data.events[i]
+			var location = this.data.events[i].location
+			distances[event.id] = Geolib.getDistance({latitude: location.latitude, longitude: location.longitude}, 
+															  {latitude: 42.3600825, longitude: -71.0588801})
+			distances[event.id] = Math.round((distances[event.id]/1609.43)*10)/10
+		}
+
+
+
 		return (
 			<Body title="Moments">
 				{this.data.events.map(function(event) {
-					return <EventItem event={event} />
+					return <EventItem event={event} distances={distances} />
 				})}
 				<UI.FloatingActionButton onClick={this.addEvent} style={styles.create}>
 					<span style={styles.icon}>+</span>
