@@ -25,9 +25,10 @@ exports.createEvent = function(user, data, options) {
   var loc = locations[Math.floor(Math.random()*locations.length)];
   data.owner_id = user.id.objectId;
   data.location = new Parse.GeoPoint({latitude: loc[0], longitude: loc[1]});
-
+  console.log(data);
   var e = new Event();
-  return e.save(data);
+  e.save(data);
+  return e.save();
 };
 
 exports.findEventById = function(event_id, options) {
