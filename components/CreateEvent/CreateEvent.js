@@ -10,44 +10,42 @@ var React = require('react')
 var Create = React.createClass({
   render: function() {
     return (
-      <div>
-        <Body>
-          <a href="/">Back to List</a>
-          Create
-          <form className="createEvent" onSubmit={this.handleSubmit}>
-            <div>
-              <label>
-                Event Name
-              </label>
-              <input type="text" name="name" value={this.state.name}
-                onChange={this.updateNameField}/>
-            </div>
-            <div>
-              <label>
-                Location
-              </label>
-              <input type="text" name="location" value={this.state.location}
-                onChange={this.updateLocationField}/>
-            </div>
-            <div>
-              <label>
-                Time
-              </label>
-              <input type="time" name="time" value={this.state.time}
-                onChange={this.updateTimeField}/>
-            </div>
-            <div>
-              <label>
-                Description
-              </label>
-              <textarea onChange={this.updateDescriptionField}>{this.state.description}</textarea>
-            </div>
-            <button type="submit">
-              Submit
-            </button>
-          </form>
-        </Body>
-      </div>
+      <Body>
+        <a href="/">Back to List</a>
+        Create
+        <form className="createEvent" onSubmit={this.handleSubmit}>
+          <div>
+            <label>
+              Event Name
+            </label>
+            <input type="text" name="name" value={this.state.name}
+              onChange={this.updateNameField}/>
+          </div>
+          <div>
+            <label>
+              Location
+            </label>
+            <input type="text" name="location" value={this.state.location}
+              onChange={this.updateLocationField}/>
+          </div>
+          <div>
+            <label>
+              Time
+            </label>
+            <input type="time" name="time" value={this.state.time}
+              onChange={this.updateTimeField}/>
+          </div>
+          <div>
+            <label>
+              Description
+            </label>
+            <textarea onChange={this.updateDescriptionField}>{this.state.description}</textarea>
+          </div>
+          <button type="submit">
+            Submit
+          </button>
+        </form>
+      </Body>
     );
   },
   updateNameField: function(e) {
