@@ -55,6 +55,7 @@
     "express": "^4.3.2",
     "flux": "^2.0.1",
     "fuzzy": "^0.1.0",
+    "geolib": "^2.0.14",
     "isomorphic-fetch": "^1.7.0",
     "material-ui": "^0.8.0",
     "moment": "^2.8.4",
