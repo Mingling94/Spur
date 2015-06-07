@@ -13,9 +13,9 @@ var Event = exports.Event = Parse.Object.extend("SpurEvent");
 exports.createEvent = function(user, options) {
   var e = new Event();
 
-  var loc = options.location;
+  // var loc = options.location;
   options.owner_id = user.id;
-  options.location = new Parse.GeoPoint({latitude: loc[0], longitude: loc[1]});
+  // options.location = new Parse.GeoPoint({latitude: loc[0], longitude: loc[1]}); GEO
   e.save(options);
 
   return e.save();
