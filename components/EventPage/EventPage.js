@@ -6,6 +6,7 @@ var React = require('react')
   , Body = require('./../Body')
   , Router = require('react-router')
   , EventModel = require('../../models/events')
+  , UI = require('material-ui')
   , styles = {}
 
 styles.title = {
@@ -45,7 +46,7 @@ var Event = React.createClass({
 
     return (
       <Body>
-      	<a href="/">Events List</a>
+      	<UI.AppBar title={this.state.event.title} />
 
         <div style={styles.title}>
           {this.state.event.title}

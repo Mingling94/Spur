@@ -4,30 +4,35 @@
 
 var React = require('react')
   , Link = require('react-router').Link
-  , styles = {}
 
-styles.title = {
-  fontSize: '1.5em'
+var styles = {
+  event: {
+    padding:24,
+    borderBottom:'1px solid #eee',
+    width:'100%',
+    display:'block',
+    textDecoration:'none',
+    color:'#444'
+  },
+  title: {
+    fontSize: '1.4em'
+  },
+  time: {
 
-}
+  },
+  distance: {
 
-styles.time = {
+  },
+  attendees: {
 
-}
-
-styles.distance = {
-
-}
-
-styles.attendees = {
-
+  }
 }
 
 var Add = React.createClass({
   render: function() {
     var params = { id:this.props.event.id.objectId }
     return (
-      <Link to="/event/view/:id" params={params}>
+      <Link to="/event/view/:id" params={params} style={styles.event}>
         <div style={styles.title}>
           {this.props.event.title}
         </div>
