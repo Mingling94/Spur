@@ -36,11 +36,11 @@ exports.findEventById = function(event_id, options) {
 };
 
 exports.addUserToEvent = function(currentEvent) {
-  return Mutation.AddUnique(currentEvent, "attendees", Parse.User.current()).dispatch();
+  return currentEvent.addUnique("attendees", Parse.User.current());
 };
 
 exports.removeUserFromEvent = function(currentEvent) {
-  return Mutation.Remove(currentEvent, "attendees", Parse.User.current()).dispatch();
+  return currentEvent.remove(Parse.User.current());
 };
 
 exports.findEventsForOwner = function(user) {
