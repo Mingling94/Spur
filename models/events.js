@@ -19,8 +19,8 @@ exports.createEvent = function(user, data, options) {
     [42.387657, -71.099495],
     [42.372698, -71.109658],
     [42.33672228, -71.03227615],
-    [42.37186154, 71.11673355],
-    [42.3421784, 71.16239548]
+    [42.37186154, -71.11673355],
+    [42.3421784, -71.16239548]
   ];
   var loc = locations[Math.floor(Math.random()*locations.length)];
   data.owner_id = user.id.objectId;

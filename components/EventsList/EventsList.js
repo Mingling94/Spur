@@ -10,6 +10,7 @@ var React = require('react')
   , UserModel = require('../../models/user')
   , ParseReact = require('parse-react')
   , UI = require('material-ui')
+  , Moment = require('moment')
 
 var styles = {
 	create: {
@@ -28,7 +29,7 @@ var EventsList = React.createClass({
 	mixins: [ParseReact.Mixin, Router.Navigation],
 	observe: function() {
 		return {
-			events: EventModel.findEventsWithinN([42.3600825, -71.0588801], 1433627757, 5)
+			events: EventModel.findEventsWithinN([42.3600825, -71.0588801], Moment().unix(), 10)
 		}
 	},
 	getInitialState: function() {

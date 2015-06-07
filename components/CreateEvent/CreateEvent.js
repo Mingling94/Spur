@@ -3,6 +3,7 @@
 "use strict";
 
 var React = require('react')
+  , Router = require('react-router')
   , Body = require('./../Body')
   , EventAPI = require('./../../models/events')
   , Moment = require('moment')
@@ -31,6 +32,7 @@ var styles = {
 }
 
 var Create = React.createClass({
+	mixins: [Router.Navigation],
   render: function() {
     return (
       <Body title="Create a Moment">
@@ -105,8 +107,12 @@ var Create = React.createClass({
     }
     console.log(options)
     EventAPI.createEvent({id: {objectId: 0}}, options)
-
+    //this.transitionTo('/')
+    this.goHome()
   },
+	goHome: function() {
+		this.transitionTo('/')
+	},
   getInitialState: function() {
     return {}
   }
