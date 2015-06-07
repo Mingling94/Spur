@@ -40,15 +40,13 @@ var EventsList = React.createClass({
 	render: function() {
 		return (
 			<Body>
-				<div>
-					<UI.AppBar title="Moments" />
-					{this.data.events.map(function(event) {
-						return <EventItem event={event} />
-					})}
-					<UI.FloatingActionButton onClick={this.addEvent} style={styles.create}>
-						<span style={styles.icon}>+</span>
-					</UI.FloatingActionButton>
-				</div>
+				<UI.AppBar title="Moments" showMenuIconButton={false} />
+				{this.data.events.map(function(event) {
+					return <EventItem event={event} />
+				})}
+				<UI.FloatingActionButton onClick={this.addEvent} style={styles.create}>
+					<span style={styles.icon}>+</span>
+				</UI.FloatingActionButton>
 			</Body>
 		)
 	}

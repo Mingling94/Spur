@@ -24,7 +24,7 @@ exports.createEvent = function(user, data, options) {
   ];
   var event
   var loc = locations[Math.floor(Math.random()*locations.length)];
-  data.owner_id = user.id;
+  data.owner_id = Parse.User.current();
   data.location = new Parse.GeoPoint({latitude: loc[0], longitude: loc[1]});
 
   return Mutation.Create(EVENT_CLASS_NAME, data).dispatch(options);
@@ -35,21 +35,20 @@ exports.findEventById = function(event_id, options) {
   return query.get(event_id, options);
 };
 
-exports.addUserToEvent = function(currentEvent, user) {
-  return Mutation.AddUnique(currentEvent, "attendees", user).dispatch();
+exports.addUserToEvent = function(currentEvent) {
+  return currentEvent.addUnique("attendees", Parse.User.current());
 };
 
-exports.removeUserFromEvent = function(currentEvent, user) {
-  return Mutation.Remove(currentEvent, "attendees", user).dispatch();
+exports.removeUserFromEvent = function(currentEvent) {
+  return currentEvent.remove(Parse.User.current());
 };
 
 exports.findEventsForOwner = function(user) {
   var query = new Q(Event);
-  return query.equalTo("owner_id", user.id);
+  return query.equalTo("owner_id", user.id.objectId);
 };
 
 exports.findEventsWithinN = function(currentPosition, timestamp, miles) {
-  console.log("yay")
   var query = new Q(Event);
   return query.withinMiles('location', currentPosition, miles)
     .greaterThanOrEqualTo('timestamp', timestamp)

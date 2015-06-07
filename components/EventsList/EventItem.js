@@ -3,32 +3,36 @@
 "use strict";
 
 var React = require('react')
-  , styles = {}
+  , Link = require('react-router').Link
 
-styles.title = {
-  fontSize: '1.5em'
+var styles = {
+  event: {
+    padding:24,
+    borderBottom:'1px solid #eee',
+    width:'100%',
+    display:'block',
+    textDecoration:'none',
+    color:'#444'
+  },
+  title: {
+    fontSize: '1.4em'
+  },
+  time: {
 
-}
+  },
+  distance: {
 
-styles.time = {
+  },
+  attendees: {
 
-}
-
-styles.distance = {
-
-}
-
-styles.attendees = {
-
+  }
 }
 
 var Add = React.createClass({
   render: function() {
-    console.log('test', this.props.event.id.objectId)
-    var url = '/event/view/'+this.props.event.id.objectId
-    console.log(url)
+    var params = { id:this.props.event.id.objectId }
     return (
-      <a href={url}>
+      <Link to="/event/view/:id" params={params} style={styles.event}>
         <div style={styles.title}>
           {this.props.event.title}
         </div>
@@ -42,7 +46,7 @@ var Add = React.createClass({
         <div style={styles.attendees}>
           4 attendees
         </div>
-      </a>
+      </Link>
     );
   }
 
