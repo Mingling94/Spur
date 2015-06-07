@@ -25,12 +25,14 @@ styles.attendees = {
 var Add = React.createClass({
 
   render: function() {
+    console.log(this.props.event.id)
+    var url = '/event/view/'+this.props.event.id
     return (
-      <a href="/event/view">
+      <a href={url}>
         <div style={styles.title}>
           {this.props.event.title}
         </div>
-        
+
         <div style={styles.time}>
           {this.props.event.timestamp}
         </div>

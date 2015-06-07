@@ -27,8 +27,10 @@ styles.attendees = {
 }
 
 var Event = React.createClass({
-
   render: function() {
+
+	console.log(this)
+
     return (
       <Body>
       	<a href="/">Events List</a>
