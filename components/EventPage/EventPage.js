@@ -50,19 +50,18 @@ var Event = React.createClass({
   },
   toggleJoin: function(e) {
     var event = this.state.event
+    var attendees = event.attributes.attendees;
 
     if(this.state.join.className == 'bail') {
       if(!event.attributes.attendees) event.attributes.attendees = 1
-      event.attributes.attendees = this.state.event.attributes.attendees-1
-      console.log(event.attributes.attendees)
+      attendees = attendees-1
       this.setState({ join: { text:'Join', className:'join' }, event:event })
     } else {
-      console.log(event.attributes.attendees)
-      if(!event.attributes.attendees) event.attributes.attendees = 0
-      event.attributes.attendees = this.state.event.attributes.attendees+1
-      console.log(event.attributes.attendees)
+      attendees = attendees + 1
       this.setState({ join: { text:'Bail', className:'bail' }, event:event })
     }
+    event.set("attendees", attendees)
+    event.save()
   },
   render: function() {
     return (

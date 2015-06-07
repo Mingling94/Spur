@@ -33,6 +33,8 @@ var styles = {
 var Add = React.createClass({
   render: function() {
     var params = { id:this.props.event.id.objectId }
+    console.log(this.props.event)
+    var attendees = this.props.event.attendees || 0
     return (
       <Link to="/event/view/:id" params={params} style={styles.event}>
         <div style={styles.title}>
@@ -49,7 +51,7 @@ var Add = React.createClass({
         </div>
         <div style={styles.info}>
           <UI.FontIcon className="material-icons" style={styles.icon}>face</UI.FontIcon>
-          <span>{this.props.event.attendees} going</span>
+          <span>{attendees} going</span>
         </div>
       </Link>
     );
