@@ -73,9 +73,6 @@ var Create = React.createClass({
   updateNameField: function(e) {
     this.setState({name: e.target.value});
   },
-  goBack: function(e) {
-    return false;
-  },
   updateLocationField: function(e) {
     var self = this
     // keep track of this, because it changes
