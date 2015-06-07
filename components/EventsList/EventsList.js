@@ -7,6 +7,7 @@ var React = require('react')
   , Body = require('./../Body')
   , EventItem = require('./EventItem')
   , EventModel = require('../../models/events')
+  , UserModel = require('../../models/user')
   , ParseReact = require('parse-react')
   , UI = require('material-ui')
 
@@ -29,6 +30,9 @@ var EventsList = React.createClass({
 		return {
 			events: EventModel.findEventsWithinN([40.7127837, -74.00594130000002], 1433627757, 5)
 		}
+	},
+	getInitialState: function() {
+		return {}
 	},
 	addEvent: function() {
 		this.transitionTo('/event/create')
