@@ -3,6 +3,7 @@
 "use strict";
 
 var React = require('react')
+  , Link = require('react-router').Link
   , styles = {}
 
 styles.title = {
@@ -24,9 +25,9 @@ styles.attendees = {
 
 var Add = React.createClass({
   render: function() {
-    var url = '/event/view/'+this.props.event.id.objectId
+    var params = { id:this.props.event.id.objectId }
     return (
-      <a href={url}>
+      <Link to="/event/view/:id" params={params}>
         <div style={styles.title}>
           {this.props.event.title}
         </div>
@@ -40,7 +41,7 @@ var Add = React.createClass({
         <div style={styles.attendees}>
           4 attendees
         </div>
-      </a>
+      </Link>
     );
   }
 
