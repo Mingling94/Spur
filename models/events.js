@@ -14,11 +14,18 @@ var Event = exports.Event = Parse.Object.extend(EVENT_CLASS_NAME);
  * }
  */
 exports.createEvent = function(user, data, options) {
+  var locations = [
+    [42.358506, -71.060142],
+    [42.387657, -71.099495],
+    [42.372698, -71.109658],
+    [42.33672228, -71.03227615],
+    [42.37186154, 71.11673355],
+    [42.3421784, 71.16239548]
+  ];
   var event
-  var loc = data.location;
+  var loc = locations[Math.floor(Math.random()*locations.length)];
   data.owner_id = user.id;
-  data.location = new Parse.GeoPoint({latitude: loc[0], longitude: loc[1]
-});
+  data.location = new Parse.GeoPoint({latitude: loc[0], longitude: loc[1]});
 
   return Mutation.Create(EVENT_CLASS_NAME, data).dispatch(options);
 };
